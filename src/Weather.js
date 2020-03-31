@@ -42,7 +42,7 @@ export default function Weather(props) {
             <form>
               <button
                 type="button"
-                class="btn btn-primary mb-2"
+                className="btn btn-primary mb-2"
                 id="selector-button"
               >
                 Current city
