@@ -24,7 +24,7 @@ export default function Weather(props) {
         <div className="row">
           <div className="col-5">
             <form className="form-inline">
-              <label className="sr-only" for="inlineFormInputName2">
+              <label className="sr-only" id="inlineFormInputName2">
                 Name
               </label>
               <input
