@@ -6,9 +6,7 @@ export default function WeatherInfo(props) {
     <div className="WeatherInfo">
       <div className="overview">
         <div className="newOverview">
-          <h1>
-            {props.data.city} {props.current.city}{" "}
-          </h1>
+          <h1>{props.data.city}</h1>
           <ul>
             <li>
               <ProperDate date={props.data.date} />
