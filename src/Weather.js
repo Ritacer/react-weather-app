@@ -6,6 +6,7 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [locationData, setLocationData] = useState({ ready: false });
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -33,7 +34,34 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
-  if (weatherData.ready) {
+  function showCity(response) {
+    setLocationData({
+      ready: true,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed
+    });
+  }
+
+  function displayPosition(position) {
+    let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=294e4b388de693d904ecaa1582666157`;
+    axios.get(apiUrlCurrent).then(showCity);
+  }
+
+  function getCurrentPosition() {
+    navigator.geolocation.getCurrentPosition(displayPosition);
+  }
+
+  function handleClick(event) {
+    event.preventDefault();
+    getCurrentPosition();
+  }
+
+  if (weatherData.ready || locationData.ready) {
     return (
       <div className="Weather">
         <div className="row">
@@ -61,11 +89,12 @@ export default function Weather(props) {
                 type="button"
                 className="btn btn-primary mb-2"
                 id="selector-button"
+                onClick={handleClick}
               >
                 Current city
               </button>
             </form>
-            <WeatherInfo data={weatherData} />
+            <WeatherInfo data={weatherData} current={locationData} />
           </div>
           <div className="col-7">
             <h2>KnowYourWeather</h2>
