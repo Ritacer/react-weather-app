@@ -1,4 +1,5 @@
 import React from "react";
+import ProperDateCurrent from "./ProperDateCurrent";
 
 export default function WeatherInfoCurrent(props) {
   return (
@@ -7,7 +8,9 @@ export default function WeatherInfoCurrent(props) {
         <div className="newOverview">
           <h1>{props.current.city}</h1>
           <ul>
-            <li>Date</li>
+            <li>
+              <ProperDateCurrent date={props.current.date} />
+            </li>
             <li>{props.current.description}</li>
           </ul>
         </div>
