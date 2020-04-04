@@ -1,7 +1,7 @@
 import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 
-export default function WeatherIcon(props) {
+export default function WeatherIconCurrent(props) {
   const codeMaping = {
     "01d": "CLEAR_DAY",
     "01n": "CLEAR_NIGHT",
@@ -24,8 +24,8 @@ export default function WeatherIcon(props) {
   };
   return (
     <ReactAnimatedWeather
-      icon={codeMaping[props.code]}
-      color="orange"
+      icon={codeMaping[props.info]}
+      color="blue"
       size={54}
       animate={true}
     />

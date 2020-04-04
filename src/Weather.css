@@ -56,8 +56,6 @@
 .clearfix canvas {
   display: block;
   margin: 0 auto;
-  height: 62px;
-  width: 62px;
 }
 .clearfix strong {
   font-size: 62px;

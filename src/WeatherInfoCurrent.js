@@ -1,5 +1,6 @@
 import React from "react";
 import ProperDateCurrent from "./ProperDateCurrent";
+import WeatherIconCurrent from "./WeatherIconCurrent";
 
 export default function WeatherInfoCurrent(props) {
   return (
@@ -15,11 +16,9 @@ export default function WeatherInfoCurrent(props) {
           </ul>
         </div>
         <div className="clearfix">
-          <img
-            src={props.current.icon}
-            alt={props.current.description}
-            className="float-left"
-          />
+          <div className="float-left">
+            <WeatherIconCurrent info={props.current.icon} />
+          </div>
           <strong>{Math.round(props.current.temperature)}</strong>
           <span className="units">ºC</span>
         </div>
