@@ -7,7 +7,7 @@
   color: #30475e;
 }
 .newOverview h1 {
-  font-size: 56px;
+  font-size: 48px;
   font-weight: 100;
   line-height: 28px;
   margin-bottom: 20px;
@@ -50,15 +50,17 @@
 }
 .clearfix .units {
   position: relative;
-  font-size: 20px;
-  top: -30px;
+  font-size: 18px;
+  top: -28px;
 }
 .clearfix canvas {
   display: block;
   margin: 0 auto;
+  position: relative;
+  bottom: -4px;
 }
 .clearfix strong {
-  font-size: 62px;
+  font-size: 58px;
   font-weight: 400;
   line-height: 1;
 }
