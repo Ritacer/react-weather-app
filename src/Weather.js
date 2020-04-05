@@ -62,95 +62,93 @@ export default function Weather(props) {
     getCurrentPosition();
   }
 
-  if (weatherData.ready || locationData.ready) {
-    if (weatherData.ready === true && locationData.ready === false) {
-      return (
-        <div className="Weather">
-          <div className="row">
-            <div className="col-5">
-              <form className="form-inline" onSubmit={handleSubmit}>
-                <label className="sr-only" id="inlineFormInputName2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control mb-2 mr-sm-2 w-50"
-                  placeholder="Enter city"
-                  autoComplete="off"
-                  autoFocus="on"
-                  onChange={handleCityChange}
-                />
-                <div>
-                  <button type="submit" className="btn btn-primary mb-2">
-                    Submit
-                  </button>
-                </div>
-              </form>
-              <form>
-                <button
-                  type="button"
-                  className="btn btn-primary mb-2"
-                  id="selector-button"
-                  onClick={handleClick}
-                >
-                  Current city
+  if (weatherData.ready === true && locationData.ready === false) {
+    return (
+      <div className="Weather">
+        <div className="row">
+          <div className="col-5">
+            <form className="form-inline" onSubmit={handleSubmit}>
+              <label className="sr-only" id="inlineFormInputName2">
+                Name
+              </label>
+              <input
+                type="text"
+                className="form-control mb-2 mr-sm-2 w-50"
+                placeholder="Enter city"
+                autoComplete="off"
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
+              <div>
+                <button type="submit" className="btn btn-primary mb-2">
+                  Submit
                 </button>
-              </form>
-              <WeatherInfo data={weatherData} />
-            </div>
-            <div className="col-7">
-              <h2>KnowYourWeather</h2>
-              <br />
-              <div>Forecast</div>
-            </div>
+              </div>
+            </form>
+            <form>
+              <button
+                type="button"
+                className="btn btn-primary mb-2"
+                id="selector-button"
+                onClick={handleClick}
+              >
+                Current city
+              </button>
+            </form>
+            <WeatherInfo data={weatherData} />
+          </div>
+          <div className="col-7">
+            <h2>KnowYourWeather</h2>
+            <br />
+            <div>Forecast</div>
           </div>
         </div>
-      );
-    }
-    if (weatherData.ready === true && locationData.ready === true) {
-      return (
-        <div className="Weather">
-          <div className="row">
-            <div className="col-5">
-              <form className="form-inline" onSubmit={handleSubmit}>
-                <label className="sr-only" id="inlineFormInputName2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control mb-2 mr-sm-2 w-50"
-                  placeholder="Enter city"
-                  autoComplete="off"
-                  autoFocus="on"
-                  onChange={handleCityChange}
-                />
-                <div>
-                  <button type="submit" className="btn btn-primary mb-2">
-                    Submit
-                  </button>
-                </div>
-              </form>
-              <form>
-                <button
-                  type="button"
-                  className="btn btn-primary mb-2"
-                  id="selector-button"
-                  onClick={handleClick}
-                >
-                  Current city
+      </div>
+    );
+  }
+  if (locationData.ready === true && weatherData.ready === true) {
+    return (
+      <div className="Weather">
+        <div className="row">
+          <div className="col-5">
+            <form className="form-inline" onSubmit={handleSubmit}>
+              <label className="sr-only" id="inlineFormInputName2">
+                Name
+              </label>
+              <input
+                type="text"
+                className="form-control mb-2 mr-sm-2 w-50"
+                placeholder="Enter city"
+                autoComplete="off"
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
+              <div>
+                <button type="submit" className="btn btn-primary mb-2">
+                  Submit
                 </button>
-              </form>
-              <WeatherInfoCurrent current={locationData} />
-            </div>
-            <div className="col-7">
-              <h2>KnowYourWeather</h2>
-              <br />
-              <div>Forecast</div>
-            </div>
+              </div>
+            </form>
+            <form>
+              <button
+                type="button"
+                className="btn btn-primary mb-2"
+                id="selector-button"
+                onClick={handleClick}
+              >
+                Current city
+              </button>
+            </form>
+            <WeatherInfoCurrent current={locationData} />
+          </div>
+          <div className="col-7">
+            <h2>KnowYourWeather</h2>
+            <br />
+            <div>Forecast</div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   } else {
     search();
     return "Loading";
