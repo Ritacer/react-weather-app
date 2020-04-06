@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherInfoCurrent from "./WeatherInfoCurrent";
 import WeatherForecast from "./WeatherForecast";
+import WeatherForecastCurrent from "./WeatherForecastCurrent";
 import axios from "axios";
 import "./Weather.css";
 
@@ -145,7 +146,7 @@ export default function Weather(props) {
           <div className="col-7">
             <h2>KnowYourWeather</h2>
             <br />
-            <div>Forecast</div>
+            <WeatherForecastCurrent city={locationData.city} />
           </div>
         </div>
       </div>
