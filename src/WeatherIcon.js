@@ -26,11 +26,11 @@ export default function WeatherIcon(props) {
     "01d": "rgb(226, 186, 8)",
     "01n": "dimgray",
     "02d": "rgb(226, 186, 8)",
-    "02n": "rgb(82, 78, 78)",
+    "02n": "dimgray",
     "03d": "rgb(226, 186, 8)",
-    "03n": "rgb(82, 78, 78)",
+    "03n": "dimgray",
     "04d": "rgb(5, 141, 165)",
-    "04n": "rgb(5, 141, 165)",
+    "04n": "rgb(82, 78, 78)",
     "09d": "rgb(0, 51, 128)",
     "09n": "darkslategray",
     "10d": "rgb(0, 51, 128)",
@@ -38,9 +38,9 @@ export default function WeatherIcon(props) {
     "11d": "rgb(0, 51, 128)",
     "11n": "darkslategray",
     "13d": "rgb(175, 171, 171)",
-    "13n": "rgb(175, 171, 171)",
+    "13n": "rgb(87, 101, 104)",
     "50d": "rgb(175, 171, 171)",
-    "50n": "rgb(175, 171, 171)",
+    "50n": "rgb(87, 101, 104)",
   };
   return (
     <ReactAnimatedWeather
