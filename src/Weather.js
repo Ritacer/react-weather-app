@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
-import WeatherInfoCurrent from "./WeatherInfoCurrent";
 import WeatherForecast from "./WeatherForecast";
-import WeatherForecastCurrent from "./WeatherForecastCurrent";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [locationData, setLocationData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
@@ -38,22 +35,9 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
-  function showCity(response) {
-    setLocationData({
-      ready: true,
-      city: response.data.name,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-    });
-  }
-
   function displayPosition(position) {
     let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=294e4b388de693d904ecaa1582666157`;
-    axios.get(apiUrlCurrent).then(showCity);
+    axios.get(apiUrlCurrent).then(handleResponse);
   }
 
   function getCurrentPosition() {
@@ -65,7 +49,7 @@ export default function Weather(props) {
     getCurrentPosition();
   }
 
-  if (weatherData.ready === true && locationData.ready === false) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="row">
@@ -104,50 +88,6 @@ export default function Weather(props) {
             <h2>KnowYourWeather</h2>
             <br />
             <WeatherForecast city={weatherData.city} />
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (locationData.ready === true && weatherData.ready === true) {
-    return (
-      <div className="Weather">
-        <div className="row">
-          <div className="col-5">
-            <form className="form-inline" onSubmit={handleSubmit}>
-              <label className="sr-only" id="inlineFormInputName2">
-                Name
-              </label>
-              <input
-                type="text"
-                className="form-control mb-2 mr-sm-2 w-50"
-                placeholder="Enter city"
-                autoComplete="off"
-                autoFocus="on"
-                onChange={handleCityChange}
-              />
-              <div>
-                <button type="submit" className="btn btn-primary mb-2">
-                  Submit
-                </button>
-              </div>
-            </form>
-            <form>
-              <button
-                type="button"
-                className="btn btn-primary mb-2"
-                id="selector-button"
-                onClick={handleClick}
-              >
-                Current city
-              </button>
-            </form>
-            <WeatherInfoCurrent current={locationData} />
-          </div>
-          <div className="col-7">
-            <h2>KnowYourWeather</h2>
-            <br />
-            <WeatherForecastCurrent city={locationData.city} />
           </div>
         </div>
       </div>
