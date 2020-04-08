@@ -95,6 +95,12 @@ export default function Weather(props) {
             <h2>KnowYourWeather</h2>
             <br />
             <WeatherForecast city={weatherData.city} />
+            <footer>
+              Powered by{" "}
+              <a href="https://openweathermap.org/" target="_blank">
+                OpenWeather
+              </a>
+            </footer>
           </div>
         </div>
       </div>

@@ -73,3 +73,7 @@
   padding-top: 28px;
   padding-bottom: 28px;
 }
+.col-7 footer {
+  text-align: right;
+  padding-right: 50px;
+}
