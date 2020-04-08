@@ -3,10 +3,17 @@ import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
+import { css } from "@emotion/core";
+import CircleLoader from "react-spinners/CircleLoader";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: #rgb(201, 24, 129);
+  `;
 
   function handleResponse(response) {
     setWeatherData({
@@ -94,6 +101,15 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return "Loading";
+    return (
+      <div className="sweet-loading">
+        <CircleLoader
+          css={override}
+          size={200}
+          color={"#C91881"}
+          loading={true}
+        />
+      </div>
+    );
   }
 }
