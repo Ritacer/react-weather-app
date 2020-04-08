@@ -8,7 +8,7 @@ export default function ProperDate(props) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
   let day = days[props.date.getDay()];
   let hours = props.date.getHours();
@@ -21,7 +21,7 @@ export default function ProperDate(props) {
   }
   return (
     <div>
-      Last update: {day}, {hours}:{minutes}
+      {day}, {hours}:{minutes}
     </div>
   );
 }

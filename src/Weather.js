@@ -92,15 +92,18 @@ export default function Weather(props) {
             <WeatherInfo data={weatherData} />
           </div>
           <div className="col-7">
-            <h2>KnowYourWeather</h2>
-            <br />
-            <WeatherForecast city={weatherData.city} />
-            <footer>
-              Powered by{" "}
-              <a href="https://openweathermap.org/" target="_blank">
-                OpenWeather
-              </a>
-            </footer>
+            <div className="container">
+              <h2>KnowYourWeather</h2>
+              <br />
+
+              <WeatherForecast city={weatherData.city} />
+              <footer>
+                Powered by{" "}
+                <a href="https://openweathermap.org/" target="_blank">
+                  OpenWeather
+                </a>
+              </footer>
+            </div>
           </div>
         </div>
       </div>

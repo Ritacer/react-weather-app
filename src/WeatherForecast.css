@@ -1,0 +1,13 @@
+.WeatherForecast h3 {
+  text-align: center;
+}
+.WeatherForecast canvas {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.WeatherForecast .weather-forecast-temperature {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
