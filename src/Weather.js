@@ -95,7 +95,6 @@ export default function Weather(props) {
             <div className="container">
               <h2>KnowYourWeather</h2>
               <br />
-
               <WeatherForecast city={weatherData.city} />
               <footer>
                 Powered by{" "}
