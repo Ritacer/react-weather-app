@@ -27,9 +27,9 @@ export default function WeatherForecast(props) {
     return (
       <div className="WeatherForecast">
         <div className="row">
-          {forecast.list.slice(0, 4).map(function (weather) {
+          {forecast.list.slice(0, 4).map(function (weather, index) {
             return (
-              <div className="col-auto">
+              <div className="col-auto" key={index}>
                 <h3>{formatHours(new Date(weather.dt * 1000))}</h3>
                 <WeatherIcon code={weather.weather[0].icon} />
                 <div className="weather-forecast-temperature">
