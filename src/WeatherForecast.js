@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherIconForecast from "./WeatherIconForecast";
 import "./WeatherForecast.css";
+import { css } from "@emotion/core";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 export default function WeatherForecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: #rgb(241, 109, 137);
+  `;
+
   function showForecast(response) {
     setForecast(response.data);
     setLoaded(true);
@@ -45,6 +53,15 @@ export default function WeatherForecast(props) {
   } else {
     let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&units=metric&appid=294e4b388de693d904ecaa1582666157`;
     axios.get(apiUrlForecast).then(showForecast);
-    return null;
+    return (
+      <div>
+        <PropagateLoader
+          css={override}
+          size={15}
+          color={"#F16D89"}
+          loading={true}
+        />
+      </div>
+    );
   }
 }
