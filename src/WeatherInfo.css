@@ -43,6 +43,4 @@
 .clearfix canvas {
   display: block;
   margin: 0 auto;
-  position: relative;
-  bottom: -4px;
 }

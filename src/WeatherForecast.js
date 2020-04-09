@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherIcon from "./WeatherIcon";
+import WeatherIconForecast from "./WeatherIconForecast";
 import "./WeatherForecast.css";
 
 export default function WeatherForecast(props) {
@@ -31,7 +31,7 @@ export default function WeatherForecast(props) {
             return (
               <div className="col-auto" key={index}>
                 <h3>{formatHours(new Date(weather.dt * 1000))}</h3>
-                <WeatherIcon code={weather.weather[0].icon} />
+                <WeatherIconForecast code={weather.weather[0].icon} />
                 <div className="weather-forecast-temperature">
                   <strong> {Math.round(weather.main.temp_max)}º </strong>
                   {Math.round(weather.main.temp_min)}º

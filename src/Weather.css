@@ -17,5 +17,8 @@
 .col-7 .container footer {
   display: block;
   margin: 0 auto;
+  padding-top: 6px;
   text-align: right;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
 }
